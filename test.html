@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+
+    <h1>This is a heading</h1>
+    <p>This is a paragraph.</p>
+</body>
+
+<!-- Gapit Code Plugin Code -->
+<div id="gapit-root"></div>
+<script>
+    (function (d, s, id, el, usId, pId) {
+        var js = document.createElement(s);
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'http://localhost:3000/js/gapit.js';
+        document.getElementsByTagName('head')[0].appendChild(js);
+        js.onload = function () {
+            GapitScript.init({
+                elementId: el,
+                trackingId: usId,
+                popupId: pId,
+                src: 'https://tartalenka.pl.ua/', // Src path for an iframe
+                paddingColor: '#ffffff', // default color of content background ( hex or color )
+                borderRadius: 0, // default border-radius of content (integer)
+                padding: 0, // default padding (integer)
+                margin: 35, // margin from top and bottom(if responsive, integer)
+                responsive: true, // responsive
+                width: 560, // max-width or fixed width( integer )
+                height: 340, // fixed height or responsive( integer )
+                preload: true // load on document load or on button click
+            });
+        }
+    }(
+        document,
+        'script',
+        'gapit-jssdk',
+        'gapit-root',
+        '110982231248429',
+        '110982231248428'
+    ));
+</script>
+<!-- Gapit End Code -->
+
+</html>
