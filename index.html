@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 <html>
 <title>HTML Tutorial</title>
-<script> 
-var shared2Zalo = function(id) 
-{
-    debugger
-	console.log(id);
-}
-</script>
 <body>
     <h1>This is a heading</h1>
     <p>This is a paragraph.</p>
 </body>
-<div class="zalo-follow-only-button" data-oaid="579745863508352884" data-callback="shared2Zalo"></div>
+
 <!-- Gapit Code Plugin Code -->
 <div id="gapit-root"></div>
 <script>
-   
     (function (d, s, id, el, usId, pId) {
         var js = document.createElement(s);
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'http://localhost:3000/js/gapit.min.js';
-        js.src = './gapit.min.js';
+        js.src = 'https://dev-thuannv.gapone.vn/js/gapit.min.js';
         document.getElementsByTagName('head')[0].appendChild(js);
         js.onload = function () {
             GapitScript.init({
                 elementId: el,
                 trackingId: usId,
                 formId: pId,
+                oaid: '2293893445652565977',
                 paddingColor: '#ffffff', // default color of content background ( hex or color )
                 borderRadius: 4, // default border-radius of content (integer)
                 padding: '30px 20px', // default padding (integer)
                 margin: 35, // margin from top and bottom(if responsive, integer)
                 responsive: true, // responsive
-                width: 500, // max-width or fixed width( integer )
-                height: 305, // fixed height or responsive( integer )
+                width: 600, // max-width or fixed width( integer )
+                height: 350, // fixed height or responsive( integer )
             });
         }
     }(
@@ -47,7 +39,6 @@ var shared2Zalo = function(id)
         '110982231248428'
     ));
 </script>
-<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 <!-- Gapit End Code -->
 
 </html>
