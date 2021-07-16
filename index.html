@@ -9,11 +9,12 @@
 <!-- Gapit Code Plugin Code -->
 <div id="gapit-root"></div>
 <script>
+    
     (function (d, s, id, el, usId, pId) {
         var js = document.createElement(s);
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'https://dev-thuannv.gapone.vn/js/gapit.min.js';
+        js.src = 'http://localhost:8181/js/gapit.min.js';
         document.getElementsByTagName('head')[0].appendChild(js);
         js.onload = function () {
             GapitScript.init({
@@ -26,8 +27,7 @@
                 padding: '30px 20px', // default padding (integer)
                 margin: 35, // margin from top and bottom(if responsive, integer)
                 responsive: true, // responsive
-                width: 600, // max-width or fixed width( integer )
-                height: 350, // fixed height or responsive( integer )
+                width: 500, // max-width or fixed width( integer ) 600
             });
         }
     }(
