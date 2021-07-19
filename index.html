@@ -4,11 +4,14 @@
 
 <body>
     <h1>This is a heading</h1>
-    <button onclick="test()">aaa </button>
+    <button onclick="changeElement()">changeElement </button>
+    <button onclick="changeStyle()">changeStyle </button>
+    <button onclick="changeElement3()">changeStyle3 </button>
 </body>
 
 <!-- Gapit Code Plugin Code -->
 <div id="gapit-root"></div>
+<div id="gapit-thanks"></div>
 <script>
     var configGapit;
     (function (d, s, id, el, usId, pId) {
@@ -19,11 +22,12 @@
         document.getElementsByTagName('head')[0].appendChild(js);
         js.onload = function () {
             configGapit = {
-                isShowInline: true, // dev
+                isShowInline: false, // dev
+                isReadOnly: false, 
                 formConfig: {
                     form: {
                         type: 'object',
-                        required: ['name', 'email'],
+                        required: ['email'],
                         properties: {
                             name: {
                                 type: 'string',
@@ -65,10 +69,10 @@
                 formId: pId,
                 oaid: '2293893445652565977',
                 paddingColor: '#ffffff',
-                borderRadius: 4, 
-                margin: 35, 
-                responsive: true, 
-                width: 500, 
+                borderRadius: 4,
+                margin: 35,
+                responsive: true,
+                width: 500,
             };
             GapitScript.init(
                 configGapit
@@ -83,10 +87,75 @@
         '110982231248428'
     ));
 
-    function test() {
+    // function reunderThank() {
+    //     var checkExist = setInterval(function() {
+    //         if (configGapit) {
+    //             configGapit.extend({
+    //                 isShowInline : true,
+    //                 isShowThanks: true,
+    //                 elementId: 'gapit-thanks'
+    //             })
+    //             GapitScript.init(
+    //                 configGapit
+    //             );
+    //             clearInterval(checkExist);
+    //         }
+    //     }, 100)
+
+        
+    // }
+    // reunderThank();
+
+    function changeElement() {
+        configGapit.formConfig.form = {
+            type: 'object',
+            required: ['email'],
+            properties: {
+                email: {
+                    type: 'string',
+                    format: 'email',
+                    title: 'Nhập email của bạn'
+                },
+                input: {
+                    type: 'submit',
+                    title: 'Đăng ký'
+                },
+                zalo: {
+                    type: 'zalo_follow',
+                    default: '2293893445652565977'
+                }
+            }
+        };
+        GapitScript.reRender(configGapit);
+    }
+
+    function changeStyle() {
         configGapit.formConfig.style.extend({
             btnSubmitColor: 'red'
         })
+        GapitScript.reRender(configGapit);
+    }
+
+    function changeElement3() {
+        configGapit.formConfig.form = {
+            type: 'object',
+            required: ['email'],
+            properties: {
+                name: {
+                    type: 'string',
+                    title: 'Nhập số điện thoại của bạn'
+                },
+                email: {
+                    type: 'string',
+                    format: 'email',
+                    title: 'Nhập email của bạn'
+                },
+                input: {
+                    type: 'submit',
+                    title: 'Đăng ký'
+                },
+            }
+        };
         GapitScript.reRender(configGapit);
     }
 </script>
