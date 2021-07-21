@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+
+<body>
+    <h1>This is a heading</h1>
+    <button onclick="changeElementForm()">changeElementForm </button>
+    <button onclick="changeStyle()">changeStyle </button>
+    <button onclick="changeTitle()">changeTitle </button>
+    <button onclick="changeRenderFormThanks()">changeRenderFormThanks </button>
+    <button onclick="changeRenderFormThank2s()">changeRenderFormThanks2 </button>
+</body>
+
+<!-- Gapit Code Plugin Code -->
+<div id="gapit-root"></div>
+<div id="gapit-thanks" style="margin-top: 500px"></div>
+<script>
+    var configGapit;
+    (function (d, s, id, el, usId, pId) {
+        var js = document.createElement(s);
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://dev-thuannv.gapone.vn/static/js/gapit.min.js?v=111';
+        document.getElementsByTagName('head')[0].appendChild(js);
+        js.onload = function () {
+            configGapit = {
+                isShowInline: false, // dev
+                elementId: el,
+                userId: usId,
+                formId: pId,
+                oaid: '2293893445652565977',
+                paddingColor: '#ffffff',
+                borderRadius: 4,
+                margin: 35,
+                responsive: true,
+            };
+            GapitScript.init(
+                configGapit
+            );
+        }
+    }(
+        document,
+        'script',
+        'gapit-jssdk',
+        'gapit-root',
+        '8',
+        '6'
+    ));
+
+    function changeElementForm() {
+        configGapit.formConfig.form = {
+            type: 'object',
+            required: ['email'],
+            properties: {
+                name: {
+                    type: 'string',
+                    title: 'Nhập số điện thoại của bạn nhe'
+                },
+                email: {
+                    type: 'string',
+                    format: 'email',
+                    title: 'Nhập email của bạn'
+                },
+                input: {
+                    type: 'submit',
+                    title: 'Đăng ký'
+                },
+                zalo: {
+                    type: 'zalo_follow',
+                    default: '2293893445652565977'
+                }
+            }
+        };
+
+        GapitScript.reRender(configGapit);
+    }
+
+    function changeStyle() {
+        configGapit.formConfig.button_submit.extend({
+            color: 'red'
+        })
+        configGapit.formConfig.form = {
+            type: 'object',
+            required: ['email'],
+            properties: {
+                name: {
+                    type: 'string',
+                    title: 'Nhập số điện thoại của bạn nhes'
+                },
+                email: {
+                    type: 'string',
+                    format: 'email',
+                    title: 'Nhập email của bạn'
+                },
+                input: {
+                    type: 'submit',
+                    title: 'Đăng ký'
+                },
+                zalo: {
+                    type: 'zalo_follow',
+                    default: '2293893445652565977'
+                }
+            }
+        };
+        GapitScript.reRender(configGapit);
+    }
+
+    function changeTitle() {
+        configGapit.formConfig.button_submit.extend({
+            color: 'yellow'
+        })
+        configGapit.formConfig.extend({
+            title: {
+                color: 'yellow',
+                tittle: 'change test title'
+            }
+        })
+        configGapit.formConfig.form = {
+            type: 'object',
+            required: ['email'],
+            properties: {
+                name: {
+                    type: 'string',
+                    title: 'Nhập số điện thoại của bạn nhe'
+                },
+                input: {
+                    type: 'submit',
+                    title: 'Đăng ký'
+                },
+            }
+        };
+        GapitScript.reRender(configGapit);
+    }
+
+    function changeRenderFormThanks() {
+        configGapit.formConfig.extend({
+            success: {
+                title: {
+                    tittle: 'Cảm ơn đã đăng kí',
+                    color: 'red'
+                },
+                description: {
+                    tittle: 'Kiểm tra email của bạn để biết thông báo xác nhận.',
+                    color: 'red'
+                }
+            },
+        })
+        GapitScript.renderThanks(
+            {
+                ...configGapit,
+                isShowThanks: true,
+                elementId: 'gapit-thanks'
+            }
+        );
+    }
+
+    function changeRenderFormThank2s() {
+        configGapit.formConfig.extend({
+            success: {
+                title: {
+                    tittle: 'Cảm ơn đã đăng kí nhe nhe nhe',
+                    color: 'blue'
+                },
+                description: {
+                    tittle: 'Kiểm tra email của bạn để biết thông báo xác nhận.',
+                    color: 'blue'
+                }
+            },
+        })
+
+
+        GapitScript.renderThanks(
+            {
+                ...configGapit,
+                isShowThanks: true,
+                elementId: 'gapit-thanks'
+            }
+        );
+    }
+</script>
+<!-- Gapit End Code -->
+<!-- Gapone tracking script -->
+<script type="text/javascript">
+    var _goq = window._goq = window._goq || [];
+    _goq.push(['setSiteId', '108']);
+
+    _goq.push(["setCookieDomain", "thuan-gapit.github.io"]);
+
+    _goq.push(["setDomains", ["thuan-gapit.github.io"]]);
+
+    //Identify a visitor by email or phone
+    /* 
+     _goq.push(['setUserId', { email: "customer@customer.com",phone:"09123456789" }]);
+ */
+    _goq.push(['trackPageView']);
+
+    // tracking event
+    /*
+          _goq.push(['trackEvent', 'event_name',{key:value}]);
+    */
+    //opened_close
+    (function () {
+        _goq.push(['setTrackerUrl', 'https://dev-tracking.gapone.vn/analytic.gif']);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript'; g.async = true; g.src = 'https://js.gapone.vn/js/gapone.js'; s.parentNode.insertBefore(g, s);
+    })();
+</script>
+ <!--End Gapone tracking script -->
+</html>
