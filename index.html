@@ -14,7 +14,7 @@
         var js = document.createElement(s);
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = './gapit.min.js';
+        js.src = 'https://dev-thuannv.gapone.vn/static/js/gapit.min.js';
         document.getElementsByTagName('head')[0].appendChild(js);
         js.onload = function () {
             configGapit = {
