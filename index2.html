@@ -149,6 +149,10 @@
             }
         };
 
+        configGapit.formConfig.background = {
+            color: "#ffffff"
+        };
+
         GapitScript.reRender(configGapit);
     }
 
@@ -156,6 +160,9 @@
         configGapit.formConfig.button_submit.extend({
             color: 'red'
         })
+        configGapit.formConfig.background = {
+            url: "https://file.hstatic.net/1000300454/file/bannerpopup-bkg_15bc9d9a882d42139e18f88ccb427ca9.jpg"
+        };
         configGapit.formConfig.form = {
             type: 'object',
             required: ['email'],
