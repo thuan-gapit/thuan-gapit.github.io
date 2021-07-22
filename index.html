@@ -1172,38 +1172,28 @@
 <!-- Gapit Code Plugin Code -->
 <div id="gapit-root"></div>
 <script>
-    var configGapit;
-    (function (d, s, id, el, usId, pId) {
+    (function (d, s, id, el, pId) {
         var js = document.createElement(s);
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'https://dev-thuannv.gapone.vn/static/js/gapit.min.js';
+        js.src = './gapit.min.js';
         document.getElementsByTagName('head')[0].appendChild(js);
         js.onload = function () {
-            configGapit = {
+            GapitScript.init({
                 elementId: el,
-                userId: usId,
-                formId: pId,
-                oaid: '2293893445652565977',
-                paddingColor: '#ffffff',
-                borderRadius: 4,
-                margin: 35,
-                responsive: true,
-            };
-            GapitScript.init(
-                configGapit
-            );
+                formId: pId
+            });
         }
     }(
         document,
         'script',
         'gapit-jssdk',
         'gapit-root',
-        '8',
         '6'
     ));
 </script>
 <!-- Gapit End Code -->
+
 <!-- Gapone tracking script -->
 <script type="text/javascript">
     var _goq = window._goq = window._goq || [];
