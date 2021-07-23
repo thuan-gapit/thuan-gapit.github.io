@@ -1172,16 +1172,17 @@
 <!-- Gapit Code Plugin Code -->
 <div id="gapit-root"></div>
 <script>
-    (function (d, s, id, el, pId) {
+    (function (d, s, id, el, pId, sId) {
         var js = document.createElement(s);
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = './gapit.min.js';
+        js.src = 'https://dev-thuannv.gapone.vn/static/js/gapit.min.js';
         document.getElementsByTagName('head')[0].appendChild(js);
         js.onload = function () {
             GapitScript.init({
                 elementId: el,
-                formId: pId
+                formId: pId,
+                siteId: sId
             });
         }
     }(
@@ -1189,37 +1190,9 @@
         'script',
         'gapit-jssdk',
         'gapit-root',
-        '6'
+        '6',
+        '18'
     ));
 </script>
 <!-- Gapit End Code -->
-
-<!-- Gapone tracking script -->
-<script type="text/javascript">
-    var _goq = window._goq = window._goq || [];
-    _goq.push(['setSiteId', '108']);
-
-    _goq.push(["setCookieDomain", "thuan-gapit.github.io"]);
-
-    _goq.push(["setDomains", ["thuan-gapit.github.io"]]);
-
-    //Identify a visitor by email or phone
-    /* 
-     _goq.push(['setUserId', { email: "customer@customer.com",phone:"09123456789" }]);
- */
-    _goq.push(['trackPageView']);
-
-    // tracking event
-    /*
-          _goq.push(['trackEvent', 'event_name',{key:value}]);
-    */
-    //opened_close
-    (function () {
-        _goq.push(['setTrackerUrl', 'https://dev-tracking.gapone.vn/analytic.gif']);
-        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-        g.type = 'text/javascript'; g.async = true; g.src = 'https://js.gapone.vn/js/gapone.js'; s.parentNode.insertBefore(g, s);
-    })();
-</script>
-<!--End Gapone tracking script -->
-
 </html>
